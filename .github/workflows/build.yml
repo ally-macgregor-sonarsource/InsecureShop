@@ -40,4 +40,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: ./gradlew build sonar --info
-	workding-directory: ./InsecureShop-android
+	working-directory: ./InsecureShop-android
