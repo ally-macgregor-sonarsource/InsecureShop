@@ -22,6 +22,7 @@ jobs:
       - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
+          projectBaseDir: InsecureShop-android
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
@@ -32,8 +33,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
       - name: Build and analyze
-        with:
-          projectBaseDir: InsecureShop-android
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
